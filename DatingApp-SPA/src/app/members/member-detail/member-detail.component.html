@@ -17,11 +17,11 @@
           </div>
           <div>
             <strong>Last Active:</strong>
-            <p>{{user.lastActive}}</p>
+            <p>{{user.lastActive | timeAgo}}</p>
           </div>
           <div>
             <strong>Member since:</strong>
-            <p>{{user.created}}</p>
+            <p>{{user.created | date: 'dd MMMM yyyy'}}</p>
           </div>
        </div>
        <div class="card-footer">
@@ -37,13 +37,13 @@
         <tabset class="member-tabset">
           <tab heading="About {{user?.knownAs}}">
             <h4>Description</h4>
-            <p>{{user.introduction}}</p>
+            <textarea name="introduction" rows="6" class="form-control" [readOnly]="true" [ngModel]="user.introduction"></textarea>
             <h4>Looking For</h4>
-            <p>{{user.lookingFor}}</p>
-          </tab>
+            <textarea name="lookingfor" rows="6" class="form-control" [readOnly]="true" [ngModel]="user.lookingFor"></textarea>
+           </tab>
           <tab heading="Interests">
-            <h4>Interests</h4>
-            <p>{{user.interests}}</p>
+             <h4>Interests</h4>
+             <textarea name="interests" rows="6" class="form-control" [readOnly]="true" [ngModel]="user.interests"></textarea>
           </tab>
           <tab heading="Photos">
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
